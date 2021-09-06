@@ -12,6 +12,10 @@
 		<members>FieloPLT__LevelMember__c.MakeLevelAttainmentPeriodPass</members>
 		<name>WebLink</name>
 	</types>
+    <types>
+        <members>FieloLevelDemote</members>
+        <name>PermissionSet</name>
+    </types>
     <version>49.0</version>
     <fullName>FieloLevelDemote</fullName>
 </Package>

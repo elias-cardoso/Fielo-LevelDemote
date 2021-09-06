@@ -42,9 +42,9 @@ public class MakeLevelDemote {
         FieloPLT__Member__c member = new FieloPLT__Member__c();
         member.Id = currentLevelMember.FieloPLT__Member__c;
         member.FieloPLT__CurrentLevelMember__c = newLevelMember.Id;
-        FieloPLT.Members.validateAdminFields = false;
+        FieloPLT.SObjectService.enableAdminPermission(true);
         update member;
-        FieloPLT.Members.validateAdminFields = true;
+        FieloPLT.SObjectService.enableAdminPermission(false);
         
         delete currentLevelMember;
 
