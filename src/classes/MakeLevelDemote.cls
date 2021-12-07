@@ -47,6 +47,13 @@ public class MakeLevelDemote {
         FieloPLT.SObjectService.enableAdminPermission(false);
         
         delete currentLevelMember;
+       
+        List<FieloPLT__MemberMilestoneItem__c> mmis = [SELECT Id FROM FieloPLT__MemberMilestoneItem__c WHERE FieloPLT__MemberMilestone__r.FieloPLT__Member__c = :currentLevelMember.FieloPLT__Member__c];
+        for(FieloPLT__MemberMilestoneItem__c mmi : mmis){
+            mmi.FieloPLT__Date__c = newCreationDate;
+        }
+        
+        update mmis;
 
         // Redirect the user to the newly created LevelMember
         PageReference pageRef = new PageReference('/' + newLevelMember.Id);
